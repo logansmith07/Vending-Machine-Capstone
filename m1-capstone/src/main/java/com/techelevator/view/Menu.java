@@ -23,6 +23,36 @@ public class Menu {
 		}
 		return choice;
 	}
+	
+	public double getMoneyFromUser(String message) {
+		double convertedAmount = 0;
+		while(true) {
+			try {
+				System.out.println();
+				System.out.print(message);
+				String enteredAmount = in.nextLine();
+				convertedAmount = Double.parseDouble(enteredAmount);
+				if (convertedAmount != 1.0 && convertedAmount != 2.0 && convertedAmount != 5.0 && convertedAmount != 10.0 && convertedAmount != 20.0) {
+					System.out.println();
+					System.out.println("We only accept $1, $2, $5, $10 & $20 bills!");
+					continue;
+				}
+				break;
+			} catch (Exception e) {
+				System.out.println();
+				System.out.println("Invalid amount!");
+				continue;
+			}
+		}
+		return convertedAmount;
+	}
+	
+	public String getStringFromUser(String message) {
+		System.out.println();
+		System.out.print(message);
+		String input = in.nextLine();
+		return input;
+	}
 
 	private Object getChoiceFromUserInput(Object[] options) {
 		Object choice = null;
